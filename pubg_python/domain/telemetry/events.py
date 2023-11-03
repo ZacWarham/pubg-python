@@ -136,6 +136,61 @@ class LogPlayerKill(Event):
             'isThroughPenetrableWall')
 
 
+class LogPlayerKillV2(Event):
+
+    def from_dict(self):
+        super().from_dict()
+        self.attack_id = self._data.get('attackId')
+        self.dbno_id = self._data.get('dBNOId')
+        self.victim_game_result = objects.GameResult(
+            self._data.get('victimGameResult', {}))
+        self.victim = objects.Character(self._data.get('victim', {}))
+        self.victim_weapon = self._data.get('victimWeapon')
+        self.victim_weapon_additional_info = self._data.get(
+            'victimWeaponAdditionalInfo')
+        
+        
+
+        self.killer = objects.Character(self._data.get('killer', {}))
+        
+        self.killerDamageInfo = objects.KilledDetails(self._data.get('killerDamageInfo', {}))
+
+        # self.assistant = objects.Character(self._data.get('assistant', {}))
+        
+        # self.damage_type_category = self._data.get('damageTypeCategory')
+        # self.damage_causer_name = self._data.get('damageCauserName')
+        # self.damage_causer_additional_info = self._data.get(
+        #     'damageCauserAdditionalInfo', [])
+        # self.damage_reason = self._data.get('damageReason')
+        # self.distance = self._data.get('distance')
+        
+        # self.is_through_penetrable_wall = self._data.get(
+        #     'isThroughPenetrableWall')
+
+class LogVehicleDamage(Event):
+    pass
+
+class LogCharacterCarry(Event):
+    pass
+
+class LogEmPickupLiftOff(Event):
+    pass
+
+class LogItemPutToVehicleTrunk(Event):
+    pass
+
+class LogItemPickupFromVehicleTrunk(Event):
+    pass
+
+class LogPlayerRedeployBRStart(Event):
+    pass
+
+class LogPlayerRedeploy(Event):
+    pass
+
+class LogPlayerDestroyProp(Event):
+    pass
+
 class LogParachuteLanding(Event):
 
     def from_dict(self):

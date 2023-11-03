@@ -189,3 +189,10 @@ class GameResult(Object):
         self.team_id = self._data.get('teamId')
         self.stats = Stats(self._data.get('stats', {}))
         self.account_id = self._data.get('accountId')
+
+
+class KilledDetails(Object):
+
+    def from_dict(self):
+        super().from_dict()
+        self.damageCauserName = self._data.get('damageCauserName')
