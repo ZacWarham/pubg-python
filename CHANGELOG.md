@@ -1,3 +1,8 @@
+## 0.12.6 / 2023-11-05
+
+- Updated telemetry URLs for new domain
+- Added more telemetry events as defaults
+
 ## 0.12.5 / 2022-10-13
 
 - Compatible import - @Tilo-K
